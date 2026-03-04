@@ -87,3 +87,18 @@ print("\nMatrix Q (Transient -> Transient):\n", Q)
 R = P_canonical[num_absorbing:, :num_absorbing]
 
 print("\nMatrix R (Transient -> Absorbing):\n", R)
+
+
+# ===============================
+# Question 2d: Fundamental Matrix
+# ===============================
+
+# Formula: N = (I - Q)^(-1)
+# I: Identity matrix
+# Q: Transition probability between transient states
+# N: Fundamental matrix
+
+I = np.eye(3)  # noqa: E741
+N = np.linalg.inv(I - Q)
+
+print("\nFundamental Matrix N:\n", np.round(N, 4))
