@@ -1,0 +1,9 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache and compiled files
+__pycache__/
+.mypy_cache/
+
+# Workspace settings
+.vscode/
