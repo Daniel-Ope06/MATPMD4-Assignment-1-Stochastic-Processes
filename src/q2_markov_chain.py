@@ -22,3 +22,27 @@ P = np.array([
 ])
 
 print("\nTransition Matrix P:\n", P)
+
+
+# =============================================
+# Question 2b: Distribution after 3 generations
+# =============================================
+
+# Initial distribution: A(13%), B(24%), C(32%), D(28%), E(3%)
+pi_0 = np.array([0.13, 0.24, 0.32, 0.28, 0.03])
+
+# Generation 1
+# Using @ for matrix multiplication
+pi_1 = pi_0 @ P
+print(f"\nGen 1 Distribution: {np.round(pi_1, 4)}")
+
+# Generation 2
+pi_2 = pi_1 @ P
+print(f"\nGen 2 Distribution: {np.round(pi_2, 4)}")
+
+# Generation 3
+pi_3 = pi_2 @ P
+print(f"\nGen 3 Distribution: {np.round(pi_3, 4)}")
+
+# Shifting from transient states (A, C, E) to absorbing states (B, D).
+# B and D are absorbing because they have 1.0 on the diagonal.
