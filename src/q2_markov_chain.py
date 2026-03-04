@@ -102,3 +102,14 @@ I = np.eye(3)  # noqa: E741
 N = np.linalg.inv(I - Q)
 
 print("\nFundamental Matrix N:\n", np.round(N, 4))
+
+
+# =====================================
+# Question 2e: Mean Steps to Absorption
+# =====================================
+
+# Formula: M = N @ 1 (column vector of ones)
+ones = np.ones((3, 1))
+M = N @ ones
+
+print("\nMean Steps to Absorption M:\n", np.round(M, 4))
