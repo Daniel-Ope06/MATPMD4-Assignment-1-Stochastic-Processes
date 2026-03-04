@@ -46,3 +46,44 @@ print(f"\nGen 3 Distribution: {np.round(pi_3, 4)}")
 
 # Shifting from transient states (A, C, E) to absorbing states (B, D).
 # B and D are absorbing because they have 1.0 on the diagonal.
+
+
+# ===========================
+# Question 2c: Canonical Form
+# ===========================
+
+# Current State Order: A(0), B(1), C(2), D(3), E(4)
+# Absorbing States: B(1), D(3)
+# Transient States: A(0), C(2), E(4)
+
+# The new order to group Absorbing first, then Transient.
+# New Order: B, D, A, C, E
+canonical_order = [1, 3, 0, 2, 4]
+
+# Move Row B to top & Row D to second to top
+P_rows_sorted = P[canonical_order, :]
+
+# Move Col B to left, Col D to second to left
+P_canonical = P_rows_sorted[:, canonical_order]
+
+print("\nCanonical Matrix P_canonical:\n", P_canonical)
+
+# Structure of Canonical Form:
+# | I  0 |  (Absorbing rows)
+# | R  Q |  (Transient rows)
+
+# 2 absorbing states and 3 transient states.
+num_absorbing = 2
+num_transient = 3
+
+# Q: Transient to Transient (Bottom-Right block)
+# Take rows from index 2 to end, and columns from index 2 to end
+Q = P_canonical[num_absorbing:, num_absorbing:]
+
+print("\nMatrix Q (Transient -> Transient):\n", Q)
+
+# R: Transient to Absorbing (Bottom-Left block)
+# Take rows from index 2 to end, and columns from index 0 to 2
+R = P_canonical[num_absorbing:, :num_absorbing]
+
+print("\nMatrix R (Transient -> Absorbing):\n", R)
