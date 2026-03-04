@@ -113,3 +113,13 @@ ones = np.ones((3, 1))
 M = N @ ones
 
 print("\nMean Steps to Absorption M:\n", np.round(M, 4))
+
+
+# =====================================
+# Question 2f: Absorption Probabilities
+# =====================================
+
+# Formula: B = N @ R
+B = N @ R
+
+print("\nAbsorption Probabilities B:\n", np.round(B, 4))
